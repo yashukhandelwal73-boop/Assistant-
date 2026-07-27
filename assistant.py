@@ -20,7 +20,7 @@ def calling_llm(parse_to_llm):
         model="gemini-3.5-flash",
         input=f"if a mathematical equation is given , give its solution , if a word is given give its definition and if question is asked just answer it here is your statement --  {parse_to_llm}" 
      )
-        return (interaction.output_text)
+        print(interaction.output_text)
 client = genai.Client()
 a,b=None,None
 c,d=None,None
@@ -36,8 +36,8 @@ try:
             a,b=x,y
           else:
             c,d=x,y
-            if a-c ==0 and d-b==0:
-              return "you didnt even select anything"
+            if (a,b)==(c,d):
+                print(f"you didnt even select anything")
             else :
               print(f"text selected successfully !!")
               copy()
